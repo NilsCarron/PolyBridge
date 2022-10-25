@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     private List<GameObject> _listPoints;
+    private List<Liaisons> _listLiaisons;
+
     [SerializeField] public LineDrawer lineDrawer;
 
 
@@ -29,10 +31,16 @@ public class GameManager : MonoBehaviour
     {
         return _listPoints;
     }
-
+    public List<GameObject> getListLiaisons()
+    {
+        return _listPoints;
+    }
 
     private void Awake()
     {
         _instance = this;
     }
+
+
+
 }

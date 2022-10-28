@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    private List<GameObject> _listPoints;
-    private List<Liaisons> _listLiaisons;
+    private List<PointBridge> _listPoints;
+    private List<Liaison> _listLiaisons;
+    [SerializeField] public Material woodMaterial;
 
     [SerializeField] public LineDrawer lineDrawer;
 
 
     private void Start()
     {
-        _listPoints = new List<GameObject> { };
-        
+        _listPoints = new List<PointBridge> { };
+        _listLiaisons = new List<Liaison> { };
     }
     public static GameManager Instance
     {
@@ -27,11 +29,11 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    public List<GameObject> getListPoints()
+    public List<Liaison> getListLiaisons()
     {
-        return _listPoints;
+        return _listLiaisons;
     }
-    public List<GameObject> getListLiaisons()
+    public List<PointBridge> getListPointsBridge()
     {
         return _listPoints;
     }
@@ -41,6 +43,8 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-
-
+    internal Material GetMaterial()
+    {
+        return woodMaterial;
+    }
 }
